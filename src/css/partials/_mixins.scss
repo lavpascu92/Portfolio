@@ -1,0 +1,30 @@
+// FONTS
+
+@mixin font_montserrat_light($font-size){
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: $font-size;
+}
+@mixin font_montserrat_normal($font-size){
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: $font-size;
+}
+@mixin font_montserrat_bold($font-size){
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: $font-size;
+}
+@mixin font_accent($font-size){
+    font-family: 'Megrim', cursive;
+    font-weight: 400;
+    font-size: $font-size;
+}
+
+// MEDIA QUERIES
+
+@mixin media_query($breaking_point){
+    @media(min-width: #{$breaking_point}){
+        @content;
+    }
+}

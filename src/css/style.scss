@@ -1,0 +1,679 @@
+@import './partials/resets';
+@import './partials/variables';
+@import './partials/mixins';
+// FONT
+@import url('https://fonts.googleapis.com/css?family=Megrim|Montserrat:300,400,700&display=swap');
+
+// CLASSES & GENERAL CSS THAT APPLY IN MANY PLACES
+a {
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    margin: 0px auto;
+    border-radius: 23px;
+}
+
+.blue_bg {
+    background-color: $blue_background;
+}
+
+.small_img {
+    width: 40px;
+}
+.medium_img{
+     width: 50px;
+}
+.hr{
+    background-color: $yellow_accent;
+    width: 60px;
+    height: 3px;
+    margin-bottom: 5px;
+}
+.subtitle{
+    @include font_accent($font_M);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @include media_query($Laptop){
+        font-size: $font_L;
+    }
+}
+.typing {
+    position: relative;
+}
+
+.typing::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 75%;
+    top: 5px;
+    margin-left: 2px;
+    border-right: white 1px solid;
+    animation: blink 0.5s ease infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.toggle {
+    display: none;
+}
+
+body {
+    background-color: $gray_background;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+// SCROLL BAR STYLING ON BODY
+body::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px rgba(75, 80, 83, 0.322);
+    -webkit-box-shadow: inset 0 0 10px rgba(75, 80, 83, 0.322);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: $yellow_accent;
+  outline: 1px solid slategrey;
+  border-radius: 10px;
+}
+// SCROLL BAR STYLING ON TEXTAREA
+textarea::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+textarea::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px rgba(75, 80, 83, 0.322);
+    -webkit-box-shadow: inset 0 0 10px rgba(75, 80, 83, 0.322);
+}
+ 
+textarea::-webkit-scrollbar-thumb {
+  background-color: $yellow_accent;
+  outline: 1px solid slategrey;
+  border-radius: 10px;
+}
+// MAIN CSS
+main#main_page {
+    display: inline-block;
+    @include media_query($Laptop) {
+        margin-top: 0.75rem;
+        margin-left: 2rem;
+        margin-right: 1rem;
+    }
+}
+
+nav#navbar {
+    max-height: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 5fr;
+    justify-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 10px;
+    button#navbar_button {
+        background-color: transparent;
+        font-size: 25px;
+        color: white;
+        margin-top: 8px;
+        cursor: pointer;
+    }
+
+    img {
+        justify-self: start;
+    }
+
+    h2 {
+        @include font_accent($font_L);
+        justify-self: start;
+        margin-top: 6px;
+        color: white;
+    }
+
+    @include media_query($Laptop) {
+        display: none; //dispare navbarul de sus complet
+    }
+}
+
+// BOTTOM NAVBAR MENU (TOGGLE) that appears at < 950px
+div#toggle_navbar {
+    text-align: center;
+
+    @include media_query($Laptop) {
+        display: none;
+    }
+
+    ul li {
+        list-style-type: none;
+        display: inline-block;
+        padding: 5px 10px;
+        @include media_query($Laptop) {
+            display: none;
+        }
+        a {
+            color: black;
+            cursor: pointer;
+            transition: background-size 0.4s;
+            background: linear-gradient(to top, $yellow_accent 0%, transparent 100%);
+            background-position: 0 100%;
+            background-repeat: repeat-x;
+            background-size: 2px 2px;
+           
+            &:hover {
+                // border-bottom: $yellow_accent 2px solid;
+                background-size: 4px 50px;
+            }
+        }
+    }
+}
+
+// LEFT FIXED NAVBAR-MENU at > 950px
+div#left_navbar {
+    display: none;
+    color: white;
+
+    @include media_query($Laptop) {
+        display: inline-block;
+        margin-top: 0.75rem;
+        text-align: center;
+        position: fixed;
+        top: 5%;
+        bottom: 20px;
+        max-width: 20rem;
+        height: 37rem;
+        img {
+            display: block;
+            width: 5rem;
+            margin: 11px auto;
+        }
+
+        h2 {
+            @include font_accent($font_L);
+            text-align: center;
+        }
+
+        h3 {
+            width: 70%;
+            margin: 10px auto;
+            padding: 5px;
+            background-color: $yellow_accent;
+            border-radius: 23px;
+        }
+
+        div#side_navbar {
+            width: 80%;
+            margin: 30px auto;
+
+            ul {
+                list-style-type: none;
+                margin-bottom: 20px;
+
+                li a {
+                    color: white;
+                    display: block;
+                    padding: 10px;
+                    text-align: left;
+                    margin-top: 8px;
+                    background: linear-gradient(to right, $yellow_accent 0%,
+                            $yellow_accent 5px, transparent 5px);
+                    background-repeat: repeat-x;
+                    background-size: 100%;
+
+                    &:hover {
+                        background: linear-gradient(to right, $yellow_accent 0%,
+                                $yellow_accent 5px, transparent);
+                    }
+                }
+            }
+
+        }
+
+        div#additional_info {
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            margin-left: 25px;
+            font-size: $font_XS;
+
+            p {
+                margin-top: 10px;
+                position: relative;
+
+                i {
+                    position: relative;
+                    top: 5px;
+
+                }
+            }
+        }
+
+        div#socials {
+            margin-bottom: 15px;
+
+            a {
+                padding: 8px 16px;
+                color: white;
+                cursor: pointer;
+                transition: all 0.25s ease-in-out;
+
+                &:hover {
+                    color: $yellow_accent;
+                }
+            }
+        }
+
+    }
+}
+
+// HOME SECTION
+section#main_page_home {
+    padding: 60px 50px;
+    color: white;
+    font-size: $font_L;
+    margin-top: 1rem;
+    height: 100%;
+
+    @include media_query($Laptop) {
+        margin: 3.5% auto;
+        max-width: 65%;
+        position: relative;
+        left: 11rem;
+    }
+
+    
+    h1,
+    h2 {
+        @include font_accent($font_L);
+        @include media_query($Laptop) {
+            font-size: $font_XL;
+        }
+
+    }
+
+    span#typing {
+        color: $yellow_accent;
+        @include font_accent($font_L);
+        font-weight: bold;
+
+        @include media_query($Laptop) {
+            font-size: $font_XL;
+        }
+    }
+
+    p.short_description {
+        padding: 20px 0px;
+        font-size: $font_S;
+        line-height: 2rem;
+
+        @include media_query($Laptop) {
+            font-size: $font_M;
+        }
+    }
+
+    button#view_portfolio {
+        padding: 10px 25px;
+        background-color: $yellow_accent;
+        border-radius: 35px;
+        font-size: $font_S;
+        margin: 20px 0px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $blue_background;
+            color: $yellow_accent;
+            border: white 1px solid;
+        }
+
+        i {
+            padding-right: 10px;
+            color: white;
+            font-size: $font_L;
+
+        }
+
+        a {
+            position: relative;
+            bottom: 6px;
+            color: white;
+
+        }
+
+    }
+
+    button#contact_me {
+        padding: 9px 24px;
+        background-color: transparent;
+        border-radius: 35px;
+        font-size: $font_S;
+        border: 1px solid white;
+        margin: 0px 0px 20px 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $yellow_accent;
+            color: $blue_background;
+            border: none;
+        }
+
+        i {
+            padding-right: 10px;
+            color: white;
+            font-size: $font_L;
+
+        }
+
+        a {
+            position: relative;
+            bottom: 6px;
+            color: white;
+
+        }
+
+    }
+}
+// SKILLS SECTION
+section#skills{
+    padding: 60px 50px;
+    color: white;
+    font-size: $font_L;
+    margin-top: 1rem;
+    height: 100%;
+    @include media_query($Laptop) {
+        margin: 40px auto;
+        max-width: 65%;
+        position: relative;
+        left: 11rem;
+    }
+    h2{
+        @include font_accent($font_L);
+        @include media_query($Laptop){
+            font-size: $font_XL;
+        }
+    }
+    
+    div.skills{
+        margin: 35px auto;
+        width: 90%;
+        img{
+            @include media_query($Laptop){
+                width: 70px;
+            }  
+        }
+    }
+    div.education{
+        display: block;
+        width: 90%;
+        margin: 35px auto;
+        font-size: $font_XS;
+        @include media_query($Laptop){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+        .small_subtitle{
+            @include font_accent($font_S);
+            color: $yellow_accent;
+            font-weight: bold;
+            @include media_query($Laptop){
+                font-size: $font_M;
+            }
+        }
+        div#school{
+            margin-bottom: 25px;
+            h2, h3, h4{
+                margin-bottom: 8px;
+            }
+        }
+        div#university{
+            margin-bottom: 25px;
+            h2, h3, h4{
+                margin-bottom: 8px;
+            }
+        }
+    }
+    
+}
+
+// PROJECTS SECTION
+section#projects{
+    padding: 20px 25px;
+    color: white;
+    font-size: $font_L;
+    margin-top: 1rem;
+    height: 100%;
+    @include media_query($Laptop) {
+        margin:0px auto;
+        max-width: 65%;
+        position: relative;
+        left: 11rem;
+    }
+    h2{
+        @include font_accent($font_L);
+        @include media_query($Laptop){
+            font-size: $font_XL;
+        }
+    }
+    div#flip_cards_section{
+        width: 90%;
+        margin: 10px auto;
+        @include media_query($Tablet){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 15px;
+        }
+        @include media_query($LargeDesktop){
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 15px;
+        }
+    }
+    
+    div.flip-card-back{
+        border-radius: 15px;
+        width: 100%;
+        a{
+            color: white;
+            padding: 10px;
+            background-color: $blue_background;
+            margin-bottom: 10px;
+            position: relative;
+            top: 85px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            font-size: $font_XS;
+            &:hover{
+                color: $yellow_accent;
+                border: 5px double $yellow_accent;
+                font-weight: bold;
+            }
+        }
+        p{
+            font-size: $font_S;
+        }
+    }
+    div.flip-card-front{
+        img{
+            width: 250px;
+            border-radius: 15px;
+        }
+        
+    }
+   
+}
+
+//FLIP CARDS CSS
+.flip-card {
+    cursor: pointer;
+    margin: 40px auto;
+    width: 90%;
+    height: 130px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color: $yellow_accent;
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+
+
+// CONTACT SECTION
+section#contact{
+    padding: 20px 50px;
+    color: white;
+    margin-top: 1rem;
+    height: 100%;
+    margin-bottom: 25px;
+    @include media_query($Laptop) {
+        margin:40px auto;
+        max-width: 65%;
+        position: relative;
+        left: 11rem;
+    }
+    h2{
+        @include font_accent($font_L);
+        @include media_query($Laptop){
+            font-size: $font_XL;
+        }
+    }
+    div.contact{
+        width: 90%;
+        margin: 30px auto;
+        font-size: $font_S;
+        input#name{
+            width: 90%;
+            height: 40px;
+            margin: 20px 10px;
+            border: 2px #fff solid;
+            border-radius: 30px;
+            background-color: transparent;
+            color: white;
+            padding-left: 10px;
+            @include media_query($Tablet){
+                width: 45%;
+            }
+            
+        }
+        ::placeholder{
+            color: #ccc;
+            padding: 8px;
+        }
+        
+        input#email{
+            padding: 8px;
+            width: 90%;
+            height: 40px;
+            margin: 20px 10px;
+            border: 2px #fff solid;
+            border-radius: 30px;
+            background-color: transparent;
+            color: white;
+            padding-left: 10px;
+            @include media_query($Tablet){
+                width: 45%;
+            }
+        }
+        input#subject{
+            width: 90%;
+            height: 40px;
+            margin: 20px 10px;
+            border: 2px #fff solid;
+            border-radius: 30px;
+            background-color: transparent;
+            color: white;
+            padding-left: 10px;
+            @include media_query($Tablet){
+                width: 95%;
+            }
+        }
+        textarea#message{
+            width: 90%;
+            height: 180px;
+            margin: 20px 10px;
+            border: 2px #fff solid;
+            border-radius: 30px;
+            background-color: transparent;
+            resize: none;
+            color: white;
+            padding: 10px;
+            @include media_query($Tablet){
+                width: 95%;
+            }
+        }
+        button[type="submit"]{
+            margin: 20px 10px;
+            padding: 10px 30px;
+            border: 1px #fff solid;
+            border-radius: 30px;
+            background-color: $yellow_accent;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            &:hover{
+                color: $yellow_accent;
+                background-color: $blue_background;
+            }
+        }
+    }  
+}
+//ARROW UP SCROLL UP
+i#up_arrow{
+    font-size: 45px;
+    color: #fdb500;
+    font-weight: bold;
+    background-color: transparent;
+    border: 3px #fdb500 solid;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    cursor: pointer;
+
+}

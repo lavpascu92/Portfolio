@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta lang="en">
+    <meta name="description" content="Junior front-end developer personal portfolio site">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0228273b28.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./src/css/style.css">
+
+    <title>Lavinia Pascu's portfolio site</title>
+</head>
+
+<body>
+    <!-- HOME PAGE -->
+    <main id="main_page">
+        <!-- Side navigation bar -->
+        <nav id="navbar" class="container blue_bg">
+            <button id="navbar_button">
+                <i class="material-icons">menu</i>
+            </button>
+            <img class="small_img" src="./src/imgs/myAvatarLavi.png" alt="owner's avatar">
+            <h2>Pascu Lavinia</h2>
+        </nav>
+        <!-- Pop-up navigation bar,appears < 950px -->
+        <div id="toggle_navbar" class="toggle">
+            <ul>
+                <li><a href="#main_page">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <!-- FIXED navigation menu on left side ,appears > 950px -->
+        <div id="left_navbar" class="container blue_bg">
+            <img src="./src/imgs/myAvatarLavi.png" alt="owner's avatar">
+            <h2>Lavinia Pascu</h2>
+            <h3>Junior front-end <br> developer</h3>
+            <div id="side_navbar">
+                <ul>
+                    <li><a  href="#main_page">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div id="additional_info">
+                <p id="location">
+                    <i class="material-icons">location_on</i>
+                    Galați, RO
+                </p>
+                <p id="email">
+                    <i class="material-icons">mail</i>
+                    pascu.lavinianicoleta@gmail.com
+                </p>
+            </div>
+            <div id="socials">
+                <a href="https://github.com/lavpascu92" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://www.linkedin.com/in/lavpascu92/" target="_blank"><i
+                        class="fab fa-linkedin fa-2x"></i></a>
+            </div>
+        </div>
+
+        <!-- Home & about section -->
+        <section id="main_page_home" class="container blue_bg">
+            <h1 id="home_title">I'm Lavinia Pascu.</h1>
+            <h2 id="type" class="typing">I am <span id="typing"> </span></h2>
+            <p class="short_description">
+                I describe myself as having passion for learning new information and technologies, ability to adapt to new
+                environments, team player and good communicator.
+            </p>
+
+            <p class="short_description">
+                I am interested in Web Development, UI/UX and gaining more experience in this field.
+                I am looking for a job where I can progress and challenge my skills.
+            </p>
+            <button id="view_portfolio"><i class="material-icons">work_outline</i>
+                <a href="#projects">View Projects</a>
+            </button>
+            <button id="contact_me"><i class="material-icons">mail_outline</i>
+                <a href="#contact">Contact Me</a>
+            </button>
+        </section>
+        <!-- Skills & education section -->
+        <section id="skills" class="container blue_bg">
+            <h2>Skills <span>& </span>Education</h2>
+            <hr class="hr">
+            <h3 class="subtitle"> <i class="fas fa-laptop-code"></i> Skills</h3>
+            <div class="skills">
+                <img class="medium_img" src="./src/imgs/htmlIcon.png" alt="Html Icon">
+                <img class="medium_img" src="./src/imgs/cssIcon.png" alt="Css Icon">
+                <img class="medium_img" src="./src/imgs/JavascriptIcons.png" alt="JavaScript Icon">
+                <img class="medium_img" src="./src/imgs/bootstrap.png" alt="Bootstrap Icon">
+                <img class="medium_img" src="./src/imgs/sassIcon.png" alt="sass Icon">
+                <img class="medium_img" src="./src/imgs/jQueryicon.png" alt="jQuery Icon">
+                <img class="medium_img" src="./src/imgs/github.png" alt="GitHub Icon">
+                <img class="medium_img" src="./src/imgs/git.png" alt="Git Icon">
+            </div>
+            <h3 class="subtitle"><i class="fas fa-graduation-cap"></i> Education</h3>
+            <div class="education">
+                <div id="school">
+                    <h2 class="small_subtitle">High-school</h2>
+                    <h3>"Alexandru Ioan Cuza" National College, Galați</h3>
+                    <h4>2008 - 2012</h4>
+                    <h4>Profile: Natural Sciences, bilingual English</h4>
+                </div>
+                <div id="university">
+                    <h2 class="small_subtitle">University</h2>
+                    <h3>"Ovidius" University, Constanța</h3>
+                    <h4>2012 - 2018</h4>
+                    <h4>Profile: Dentistry</h4>
+                </div>
+            </div>
+        </section>
+        <!-- Projects section -->
+        <section id="projects" class="container blue_bg">
+            <h2>Projects</h2>
+            <hr class="hr">
+            <!-- FLIP CARDS SECTION -->
+            <div id="flip_cards_section">
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="./src/imgs/Screenshot (16).png" alt="Leospa website">
+                      </div>
+                      <div class="flip-card-back">
+                        <a href="https://lavpascu92.github.io/LeospaWebsite/" target="_blank">Demo</a>
+                        <a href="https://github.com/lavpascu92/LeospaWebsite"  target="_blank">Code</a>
+                        <p>Leospa beauty & cosmetics website</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="./src/imgs/Screenshot (17).png" alt="ZenGo website">
+                      </div>
+                      <div class="flip-card-back">
+                        <a href="https://lavpascu92.github.io/ZenGo/" target="_blank">Demo</a>
+                        <a href="https://github.com/lavpascu92/ZenGo"  target="_blank">Code</a>
+                        <p>ZenGo theme website</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="./src/imgs/Screenshot (18).png" alt="Travelly blog">
+                      </div>
+                      <div class="flip-card-back">
+                        <a href="https://lavpascu92.github.io/TravellyWebsite/" target="_blank">Demo</a>
+                        <a href="https://github.com/lavpascu92/TravellyWebsite"  target="_blank">Code</a>
+                        <p>Travelly blog theme</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="./src/imgs/JsCalculator.gif" alt="Simple JavaScript calculator">
+                      </div>
+                      <div class="flip-card-back">
+                        <a href="https://lavpascu92.github.io/JsCalculator/" target="_blank">Demo</a>
+                        <a href="https://github.com/lavpascu92/JsCalculator"  target="_blank">Code</a>
+                        <p>JavaScript Calculator</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="./src/imgs/randomQuote.gif" alt="JavaScript RandomQuoteGenerator">
+                      </div>
+                      <div class="flip-card-back">
+                        <a href="https://lavpascu92.github.io/RandomQuoteGenerator/" target="_blank">Demo</a>
+                        <a href="https://github.com/lavpascu92/RandomQuoteGenerator"  target="_blank">Code</a>
+                        <p>Random Quote Generator </p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            
+        </section>
+        <!-- Contact section -->
+        <section id="contact" class="container blue_bg">
+            <h2>Get in touch</h2>
+            <hr class="hr">
+
+            <div class="contact">
+              <form action="https://formspree.io/xknqnerl" method="POST">
+                
+                <input type="text" id="name" name="Name" placeholder="Your name" required>
+                
+                <input type="email" name="Email" id="email" placeholder="Email address" required>
+          
+                <input type="text" id="subject" name="Subject" placeholder="Subject">
+               
+                <textarea name="message" id="message" maxlength="700" placeholder="Your message here" required></textarea>
+
+                <button type="submit">Send message</button>
+              </form>
+            </div>
+          </section>
+
+          <i id="up_arrow" class="material-icons">expand_less</i>
+        
+    </main>
+
+    <script src="./src/js/lib/jquery-3.4.1.min.js"></script>
+    <script src="./src/js/app.js"></script>
+</body>
+
+</html>
