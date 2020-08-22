@@ -1,5 +1,5 @@
 $(function(){
-    const WORDS = ["self-taught web developer.", "a learner.", "tech curious."];
+    const WORDS = ["a front-end developer.", "a learner.", "tech curious."];
     let wordIndex = 0;
     let letterIndex = 0;
     let currentWord = '';
